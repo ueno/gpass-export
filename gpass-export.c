@@ -321,6 +321,7 @@ decrypt (const char *filename, char *password)
       nblocks++;
       buf = gcry_realloc (buf, blocksize * (nblocks + 1));
     }
+  close (fd);
 
   /* decrypt buffer */
   err = gcry_cipher_open (&cipher,
@@ -367,6 +368,7 @@ decrypt (const char *filename, char *password)
     }
 
   parse (buf, blocksize * nblocks);
+  gcry_free (buf);
 
   return true;
 }
@@ -412,10 +414,7 @@ main (int argc, char **argv)
   retval = decrypt (argv[1], password);
   free (password);
   if (!retval)
-    {
-      fprintf (stderr, "Decryption failed\n");
-      exit (2);
-    }
+    exit (2);
 
   return 0;
 }

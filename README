@@ -1,0 +1,4 @@
+gpass-export -- salvage passwords from unmaintained GPass password manager
+
+$ gpass-export ~/.gpass/passwords.gps > passwords.rec.gpg
+$ gpg < passwords.rec.gpg | recsel -e "Name = 'foo'" -p Login,Password

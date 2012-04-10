@@ -1,4 +1,6 @@
-gpass-export -- salvage passwords from unmaintained GPass password manager
+gpass-export -- simple tool to salvage passwords from unmaintained GPass password manager
+
+See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=617590
 
 $ gpass-export ~/.gpass/passwords.gps > passwords.rec.gpg
-$ gpg < passwords.rec.gpg | recsel -e "Name = 'foo'" -p Login,Password
+$ gpg < passwords.rec.gpg | recsel -e "Name = 'foo'"

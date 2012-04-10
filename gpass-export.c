@@ -118,7 +118,7 @@ parse (const uint8_t *buf, size_t bufsize)
     }
   p += sizeof (PREFIX) - 1;
 
-  _gpgme_data_print (plain, "%%rec: Account\n%%key: Login\n\n");
+  _gpgme_data_print (plain, "%%rec: Account\n%%key: Name\n\n");
 
   while (p < buf + bufsize)
     {

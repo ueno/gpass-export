@@ -303,7 +303,7 @@ decrypt (const char *filename, char *password)
       fprintf (stderr, "Can't get block size: %s\n", gcry_strerror (err));
       return false;
     }
-  buf = gcry_malloc_secure (blocksize);
+  buf = gcry_malloc (blocksize);
 
   nblocks = 0;
   while (1)
